@@ -1,0 +1,7 @@
+.page {
+  @apply flex flex-col items-center justify-start flex-grow;
+}
+
+.pageContent {
+  @apply flex flex-col justify-start w-full max-w-[77rem] flex-grow py-12 px-12 sm:px-16 lg:px-24;
+}

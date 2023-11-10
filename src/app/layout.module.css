@@ -1,0 +1,32 @@
+.colorBar {
+  @apply h-[2px] w-full bg-gradient-to-r from-sky-400 via-rose-400 to-lime-400 fixed z-20;
+  &:before {
+    @apply absolute top-0 left-0 w-full h-full bg-theme-color bg-none opacity-0 transition duration-300;
+    content: '';
+  }
+
+  body[class*='colorized-'] & {
+    &:before {
+      @apply opacity-100;
+    }
+  }
+}
+
+.siteTitle {
+  @apply pt-8 font-mono text-center text-3xl leading-none flex-grow-0 text-site-title transition-colors duration-300;
+  body[class*='colorized-black'] & {
+    @media (prefers-color-scheme: dark) {
+      text-shadow: -1px 1px rgba(255, 255, 255, 0.5);
+    }
+  }
+  body[class*='colorized-white'] & {
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.5);
+    @media (prefers-color-scheme: dark) {
+      text-shadow: none;
+    }
+  }
+}
+
+.siteSubtitle {
+  @apply font-sans text-center text-sm text-foreground-muted;
+}

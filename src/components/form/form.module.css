@@ -1,0 +1,53 @@
+.label {
+  @apply block mb-1 text-sm font-medium;
+}
+
+.withPrefixIcon {
+  @apply pl-9;
+}
+
+.prefixIcon {
+  @apply block absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none;
+  color: rgb(var(--foreground-muted-rgb));
+}
+
+.suffixIcon {
+  @apply block absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none;
+  color: rgb(var(--foreground-muted-rgb));
+}
+
+.caret {
+  @apply w-0 h-0 inline-block border-4 border-solid border-transparent border-t-current;
+}
+
+.cta {
+  @apply h-10 px-3 bg-accent-background text-accent-foreground;
+
+  &:hover,
+  &:focus-visible {
+    &:not(:disabled) {
+      @apply bg-foreground text-background-end;
+    }
+  }
+
+  input + & {
+    @apply pr-4;
+  }
+
+  input:focus-visible + & {
+    @apply ring-1 ring-accent-background;
+  }
+
+  body[class*='colorized-black'] & {
+    @media (prefers-color-scheme: dark) {
+      @apply ring-1 ring-inset ring-foreground-muted -ml-1;
+    }
+  }
+
+  body[class*='colorized-white'] & {
+    @apply ring-1 ring-inset ring-foreground-muted -ml-1;
+    @media (prefers-color-scheme: dark) {
+      @apply ring-0 ml-0;
+    }
+  }
+}

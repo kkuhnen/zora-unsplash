@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
@@ -8,13 +9,36 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        foreground: 'var(--foreground-hex)',
+        ['foreground-muted']: 'var(--foreground-muted-hex)',
+        ['background-start']: 'var(--background-start-hex)',
+        ['background-end']: 'var(--background-end-hex)',
+        ['accent-background']: 'var(--accent-background-hex)',
+        ['accent-foreground']: 'var(--accent-foreground-hex)',
+        ['input-background']: 'var(--input-background-hex)',
+        ['input-foreground']: 'var(--input-foreground-hex)',
+        ['input-border']: 'var(--input-border-hex)',
+        ['theme-color']: 'var(--theme-color)',
+        ['site-title']: 'var(--site-title)',
+      },
+      fontFamily: {
+        sans: ['var(--font-dm-sans)'],
+        mono: ['var(--font-dm-mono)'],
       },
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [
+    plugin(({ addComponents }) => {
+      addComponents({
+        '.gradient-colorbar': {
+          '@apply bg-gradient-to-r from-sky-400 via-rose-400 to-lime-400': {},
+        },
+        '.border-muted': {
+          '@apply border-black/10 dark:border-white/10': {},
+        },
+      });
+    }),
+  ],
+};
+export default config;

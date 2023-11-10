@@ -1,0 +1,41 @@
+.controlsRow {
+  @apply flex flex-wrap items-center justify-center;
+}
+
+.controlsCol {
+  @apply m-2;
+}
+
+.controlsBreak {
+  @apply w-full;
+  @media (min-width: 725px) {
+    @apply hidden;
+  }
+}
+
+.pagination {
+  @apply flex flex-wrap items-center justify-center gap-4 sm:flex-nowrap sm:justify-between border-muted;
+}
+
+.paginationTop {
+  @apply mt-6 pb-8 border-b;
+}
+
+.paginationBottom {
+  @apply pt-8 border-t;
+}
+
+.paginationControls {
+  @apply flex items-center gap-2;
+}
+
+.paginationControl {
+  @apply flex items-center gap-1;
+  &:hover {
+    @apply text-accent-background;
+  }
+}
+
+.separator {
+  @apply bg-black/10 dark:bg-white/10 w-[1px] self-stretch;
+}
