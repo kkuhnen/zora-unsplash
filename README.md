@@ -28,7 +28,7 @@ A step by step series of examples that tell you how to get a development or prod
 
 1. Clone the respitory
    ```bash
-   git clone [repository URL]
+   git clone git@github.com:kkuhnen/zora-unsplash.git
    cd zora-unsplash
    ```
 1. Set correct version of Node.js using `nvm` (optional)
